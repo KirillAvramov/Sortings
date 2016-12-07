@@ -1,2 +1,2 @@
 # Sortings
-Strings sorting algorithm
+Sorting algorithm for strings
