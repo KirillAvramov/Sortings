@@ -79,9 +79,7 @@ void main(int argc, char **argv)
 	}
 
 	fclose(fl);
-	for (int q = 0; q < n; ++q)	// Освоюождение памяти, выделенной под символы каждой строки
-		free(strngs[q]);
-	free(strngs);			// Освобождение памяти для строк
+	free(strngs);
 }
 
 void qsorting (char *m[], int a, int b)
