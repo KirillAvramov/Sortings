@@ -109,10 +109,10 @@ void mergesort(char *m[], int n_strngs, int a, int b)
 	int mid = (l+r)/2 ;
 	char **temp = (char **)malloc(n_strngs * sizeof(char*));
 	
-	if (r-l > 1)
+	if (r-l > 1)				
 	{
-		mergesort(m, n_strngs, l, mid);
-		mergesort(m, n_strngs, mid+1, r);
+		mergesort(m, n_strngs, l, mid);	  // Рекурсия продолжается до образования пары
+		mergesort(m, n_strngs, mid+1, r); // которая будет сортироваться по алгоритму ниже
 	}
 	
 	int l1 = l;
@@ -124,7 +124,7 @@ void mergesort(char *m[], int n_strngs, int a, int b)
 	
 	int c;
 	while ((l1 <= mid || l2 <= r) && L <= r)
-		if (c = ((l1 > mid) + 2*(l2 > r))) // Случай, если правое или левое деление полностью вставилось в массив, а другое еще осталось
+		if (c = ((l1 > mid) + 2*(l2 > r))) // Случай, если правое или левое деление полностью отсортирвалось в массив, а другое еще осталось
 		{
 			switch (c) {
 			case 1:
@@ -174,7 +174,6 @@ void bubble (char *m[], int a, int b)
 		for (j = a; j < b; ++j)
 				if (strcmp(m[j], m[j+1]) > 0)
 					swap (&m[j], &m[j+1]);
-		
 		--b;
 	}	
 }
