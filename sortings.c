@@ -84,21 +84,20 @@ void main(int argc, char **argv)
 
 void qsorting (char *m[], int a, int b)
 {
-	int l = a, r = b;
-	int mid = (l+r)/2;
-	while (l <= r)
-	{
-		while (strcmp(m[l], m[mid]) < 0)
-		++l;
-		while (strcmp(m[r], m[mid]) > 0)
-		--r;
-		if (l <= r)
-			swap (&m[l++], &m[r--]);
-	}
+	int l = a, r = b; // r - индекс опорного элемента
+	while (l != r)
+		
+		if (strcmp(m[l], m[r]) >= 0)
+		{
+			swap(&m[l], &m[r]);
+			swap(&m[l], &m[--r]);
+		}
+		else ++l;
+		
 	if (r > a)
-		qsorting (m, b, a);
+		qsorting (m, a, r-1);
 	if (l < b)
-		qsorting (m, l, b);
+		qsorting (m, l+1, b);
 }
 
 void mergesort(char *m[], int n_strngs, int a, int b)
