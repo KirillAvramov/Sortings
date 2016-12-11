@@ -121,7 +121,7 @@ void mergesort(char *m[], int n_strngs, int a, int b)
 	int l2 = mid+1;
 	int L = l;
 
-	for (int q = 0; q <= n_strngs; ++q)
+	for (int q = 0; q < n_strngs; ++q)
 		*(temp+q) = m[q];
 	
 	int c;
