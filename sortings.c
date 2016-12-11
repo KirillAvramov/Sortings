@@ -3,13 +3,9 @@
 #include <stdlib.h> // Библиотека с компаратором
 
 void swap (char **p, char **s);
-
 void qsorting (char *m[], int a, int b);
-
 void mergesort(char *m[], int n_strngs, int a, int b);
-
 void insert (char *m[], int a, int b);
-
 void bubble (char *m[], int a, int b);
 
 void main(int argc, char **argv)
@@ -31,6 +27,7 @@ void main(int argc, char **argv)
 	
 	char **strngs;	// Массив строк из файла
 	strngs = (char **) malloc(n*sizeof(char*)); // Выделили память на количество строк
+	int max = 0;
 	for (int i = 0; i < n; i++)
 	{
 		int k = 0;	// Счетчик символов в строке
@@ -40,8 +37,12 @@ void main(int argc, char **argv)
 			c = fgetc(fl);
 			++k;
 		}
-		strngs[i] = (char *) malloc(k*sizeof(char)); // Выделили память на количество символов в каждой строке
+		++k;
+		if (max < k)
+			max = k;
 	}
+	for (int j = 0; j < n; ++j)
+		strngs[j] = (char *) malloc(max*sizeof(char)); // Выделили память на количество символов в каждой строке
 	
 	int c = -1;
 	while (c != 0)
@@ -78,8 +79,12 @@ void main(int argc, char **argv)
 		printf("\n");				// strngs
 	}
 
+	--n;
+	for (n; n >= 0; --n)
+		free(strngs[n]);
+	free(strngs);	// Освобождение памяти для строк	
 	fclose(fl);
-	free(strngs);
+	return 0;
 }
 
 void qsorting (char *m[], int a, int b)
@@ -151,6 +156,7 @@ void mergesort(char *m[], int n_strngs, int a, int b)
 			m[L++] = *(temp+l2);
 			++l2;
 		}
+	free(temp);
 }
 
 void insert (char *m[], int a, int b)
