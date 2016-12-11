@@ -8,7 +8,7 @@ void mergesort(char *m[], int n_strngs, int a, int b);
 void insert (char *m[], int a, int b);
 void bubble (char *m[], int a, int b);
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	if (argc != 3)
 	{
