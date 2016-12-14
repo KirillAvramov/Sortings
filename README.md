@@ -48,6 +48,7 @@ index | % time  |  self | children  |  called   |  name
    
    Index | by function name
 ------ | ------
+[1] |main
 [2] |bubble                  
 [3] |mergesort               
 [4] |swap
