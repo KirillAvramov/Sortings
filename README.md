@@ -46,9 +46,12 @@ index | % time  |  self | children  |  called   |  name
    |         |  0.00  | 0.00  | 10698/508818|     swap [4]
    |         |        |       |  999        |    qsorting [6]
    
-   [2] bubble
-   [3] mergesort               
-   [4] swap
-   [5] insert                  
-   [6] qsorting
+   Index | by function name
+------ | ------
+[2] |bubble                  
+[3] |mergesort               
+[4] |swap
+[5] |insert                  
+[6] |qsorting
+
 
